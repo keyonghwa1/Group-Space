@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberInterest">
+
+	<insert id="interest_insert" parameterType="Member_InterestDTO" useGeneratedKeys="false">
+		insert into member_interest values(
+			MEMBER_INTEREST_SEQ.nextVal,
+			#{member_no},
+			#{interest_context})	
+	</insert>
+	
+	<update id="Interest_update" parameterType="Member_InterestDTO">
+		update member_interest set interest_context=#{interest_context}
+				where member_no=#{member_no} and interest_no=#{interest_no}
+	</update>
+	
+	<select id="interest_context" parameterType="int" resultType="Member_InterestDTO">
+		select interest_context from member_interest where member_no=#{member_no}
+	</select>
+	
+	<delete id="member_Interest_delete" parameterType="int">
+		delete from member_interest where member_no=#{member_no}
+	</delete>
+	
+	<delete id="member_Interest_context_delete" parameterType="java.lang.String">
+		delete interest_context from member_interest where member_no=#{member_no1}
+	</delete>
+	
+	<select id="interest_list" parameterType="int" resultType="Member_InterestDTO">
+		select * from member_interest where member_no =#{member_no}
+	</select>
+	
+	<delete id="delete_Interest_no" parameterType="int">
+		delete from member_interest where member_no=#{member_no} and interest_no=#{interest_no}
+	</delete>
+	
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

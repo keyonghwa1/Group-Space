@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<settings>
+		<!-- 내장 캐시 비활성화 -->
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		
+		<!-- PreparedStatement 재사용 -->
+		<setting name="defaultExecutorType" value="REUSE" />
+	</settings>
+	
+	<typeAliases>
+       <typeAlias type="dto.member.MemberDTO" alias="memberDTO"/>
+       <typeAlias type="dto.member.Member_InterestDTO" alias="Member_InterestDTO"/>
+       <typeAlias type="dto.space.SpaceDTO" alias="spaceDTO"/>
+       <typeAlias type="dto.space.HashTagDTO" alias="hashtagDTO"/>
+       <typeAlias type="dto.space.SpaceCategoryDTO" alias="spaceCategoryDTO"/>
+       <typeAlias type="dto.space.SpaceApprovalDTO" alias="spaceApprovalDTO"/>
+       <typeAlias type="dto.space.SpaceMemberDTO" alias="spaceMemberDTO"/>
+       <typeAlias type="dto.space.SpaceBoardDTO" alias="spaceBoardDTO"/>
+    </typeAliases>
+	
+	<mappers>
+		<mapper resource="config/mybatis/mapper/member.xml"/>
+		<mapper resource="config/mybatis/mapper/member_Interest.xml"/>
+		<mapper resource="config/mybatis/mapper/space.xml"/>
+		<mapper resource="config/mybatis/mapper/hashtag.xml"/>
+		<mapper resource="config/mybatis/mapper/space_category.xml"/>
+		<mapper resource="config/mybatis/mapper/space_approval.xml"/>
+		<mapper resource="config/mybatis/mapper/space_member.xml"/>
+		<mapper resource="config/mybatis/mapper/space_board.xml"/>
+	</mappers>
+</configuration>

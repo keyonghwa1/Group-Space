@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member">
+
+	<select id="member_list" parameterType="java.lang.String" resultType="memberDTO">
+		select * from member
+	</select>
+	
+	<insert id="member_insert" parameterType="memberDTO"  useGeneratedKeys="false">
+		insert into member values(
+			MEMBER_SEQ.nextVal,
+			#{member_id},
+			#{member_name},
+			#{member_email},
+			#{member_pwd},
+			#{member_context},
+			#{member_per})	
+		
+	</insert>
+	
+	<!-- 아이디 검색 -->
+	<select id="check_id" parameterType="java.lang.String" resultType="memberDTO">
+		select * from member where member_id=#{member_id}
+	</select>
+		
+	<!-- 회원 탈퇴 -->
+	<delete id="member_delete" parameterType="int" >
+		delete from member where member_no=#{member_no}
+	</delete>
+	
+	<update id="member_update" parameterType="memberDTO">
+		update member set member_name=#{member_name}, member_email=#{member_email}, 
+				member_pwd=#{member_pwd}, member_context=#{member_context}
+				where member_no=#{member_no}
+	</update>
+	
+	<select id="member_select_no" parameterType="int" resultType="memberDTO">
+		select * from member where member_no=#{member_no}
+	</select>
+
+	<select id="check_update_id" parameterType="java.lang.String" resultType="memberDTO">
+		select * from member where member_no=#{member_no}
+	</select>
+	
+	<!-- 해당 스페이스 매니저 검색 -->
+	<select id="manager_select" parameterType="int" resultType="memberDTO">
+	SELECT MEM.MEMBER_NO, MEM.MEMBER_ID, MEM.MEMBER_NAME, MEM.MEMBER_EMAIL,
+	MEM.MEMBER_PWD, MEM.MEMBER_CONTEXT, MEM.MEMBER_PER FROM MEMBER MEM,
+	SPACE SP
+	WHERE MEM.MEMBER_NO = SP.MEMBER_NO
+	AND SP.SPACE_NO = #{space_no}
+	</select>
+	
+</mapper>
+

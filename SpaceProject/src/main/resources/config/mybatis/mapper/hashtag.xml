@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hashtag">
+	<insert id="hashtag_insert"  parameterType="hashtagDTO" useGeneratedKeys="false">
+		insert into hashtag values(
+			HASHTAG_SEQ.nextVal,
+			#{space_no},
+			#{hashtag_context})
+	</insert>
+	<select id="hashtag_list" parameterType="int" resultType="hashtagDTO">
+		SELECT * FROM HASHTAG WHERE SPACE_NO = #{space_no}
+	</select>
+	
+	<select id="search_hashtag_list" parameterType="java.lang.String" resultType="hashtagDTO">
+		SELECT space_no FROM HASHTAG WHERE HASHTAG_CONTEXT = #{keyword}
+	</select>
+	
+	<delete id="hashtag_delete" parameterType="int">
+		DELETE FROM HASHTAG WHERE SPACE_NO = #{space_no}
+	</delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
