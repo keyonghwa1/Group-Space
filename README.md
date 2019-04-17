@@ -24,3 +24,11 @@
 #### 결과를 얻어오기 위한 서버 액션: JAVA, Servlet, JSP, JSTL, EL
 #### DB액션 처리: JDBC
 #### 영화정보테이블 , 상영정보 테이블 
+
+## 프로세스
+#### ![스페이스 프로세스001](https://user-images.githubusercontent.com/49432951/56307968-15725280-6181-11e9-8490-703393487b23.jpg)
+
+## ERD
+#### ![스페이스 erd001](https://user-images.githubusercontent.com/49432951/56307974-173c1600-6181-11e9-94a2-9e9694c22603.jpg)
+
+## 시연
